@@ -1,0 +1,7 @@
+.btn-active{
+    @apply flex flex-row justify-center items-center font-bold w-full h-12 px-6 text-white  bg-blue-700 rounded-sm 
+}
+
+.btn-inactive{
+    @apply flex flex-row justify-center items-center font-semibold w-full h-12 px-6 text-white  bg-gray-400 rounded-sm 
+}

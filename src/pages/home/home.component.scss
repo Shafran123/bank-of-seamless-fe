@@ -1,0 +1,83 @@
+.mainContainer{
+    @apply grid grid-cols-1 mobile:grid-cols-2 desktop:grid-cols-4 desktop:grid-cols-12 laptop:grid-cols-12 bg-white h-screen
+}
+
+.leftContainer{
+  @apply flex flex-col col-span-4 h-full p-10 justify-center
+}
+
+.rightContainer{
+    @apply flex flex-col col-span-8 bg-blue-600 h-screen items-center justify-center mobile:hidden laptop:flex
+}
+
+.logoContainer{
+    @apply  pb-4
+}
+
+.mobileVector{
+    @apply absolute top-0 right-0
+}
+
+.vector{
+    @apply h-28 object-contain
+}
+
+.logo{
+    @apply h-24 object-contain
+}
+
+.txtHeading{
+    @apply text-4xl font-semibold
+}
+
+.txtSubHeading{
+    @apply  pt-1 pb-6 text-base font-light text-gray-400
+}
+
+.txtAvailableBalance{
+    @apply   text-right font-semibold 
+}
+
+.txtBalance{
+    @apply  pb-4 text-right font-bold text-4xl
+}
+
+.ibanInputContainer{
+    @apply relative text-gray-700 mt-2
+}
+
+.inputIban{
+    @apply  w-full h-12 pl-4 pr-3 text-base placeholder-gray-600 border rounded-sm 
+}
+
+.ibanInputValidatorIcon{
+    @apply   absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none
+}
+
+.bankLogoContainer{
+    @apply pt-10
+}
+
+.txtBankName{
+    @apply  pt-1 font-semibold
+}
+
+.amountInputContainer{
+    @apply  relative text-gray-700 mt-10
+}
+
+.inputAmount{
+    @apply  w-full h-12 pl-4 pr-3 text-base placeholder-gray-600 border rounded-sm  text-right
+}
+
+.currencyContainer{
+    @apply absolute inset-y-0 left-0 flex items-center pointer-events-none
+}
+
+.txtCurrency{
+    @apply  flex h-12 px-4 bg-gray-300 justify-center items-center rounded-sm font-semibold
+}
+
+.btnTransferContainer{
+    @apply pt-10
+}
