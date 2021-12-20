@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from 'src/services/shared/api.service';
 import { UserService } from 'src/services/user/user.service';
 import { ErrorMessageHandler } from 'src/helpers/error-handler';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -23,6 +24,7 @@ const maskConfig: Partial<IConfig> = {
     HttpClientModule,
     AppRoutingModule,
     NgxMaskModule.forRoot(),
+
   ],
   providers: [ApiService , UserService , ErrorMessageHandler],
   bootstrap: [AppComponent]

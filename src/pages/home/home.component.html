@@ -46,7 +46,7 @@
             <div class="ibanInputContainer">
                 <input class="inputIban" type="text" #iban="ngModel" ibanValidator [ngModel]="IBAN | ibanFormatter"
                     [mask]="inputMask" [showMaskTyped]="IBAN.length >= 2 ? true : false"
-                    (ngModelChange)="onChangeIBAN($event , iban.valid)" [ngModelOptions]="{standalone: true}"
+                    (ngModelChange)="onChangeIBAN($event , iban.valid)" [ngModelOptions]="{standalone: true }"
                     placeholder="Enter your IBAN Number Here..." />
 
                 <div class="ibanInputValidatorIcon">
@@ -89,7 +89,7 @@
             <div class="amountInputContainer">
 
                 <input class="inputAmount" type='text' mask="separator" thousandSeparator=","
-                    placeholder="Enter Amount to Transfer" [(ngModel)]="transferAmount" />
+                    placeholder="Enter Amount to Transfer" [(ngModel)]="transferAmount"  (ngModelChange)="getPercentage()" />
 
                 <div class="currencyContainer">
 
@@ -99,16 +99,26 @@
                 </div>
 
             </div>
-
+        
+            <div  class="percentageInfoContainer">
+                <div >
+                    Transfer Percentage
+                </div>
+                <div [ngClass]="getPercentageStyles()">
+                    {{percentage}}%
+                </div>
+            </div>
+        
 
             <div class="btnTransferContainer">
-                <btn-primary currency={{countryCode}} [isDisable]=false (onButtonClick)="onTransferClicked()">
+                <btn-primary currency={{countryCode}} [isDisable]="validateTranferBtn()" (onButtonClick)="onTransferClicked()">
                 </btn-primary>
             </div>
 
 
         </div>
 
+  
 
     </div>
     <div class="rightContainer">

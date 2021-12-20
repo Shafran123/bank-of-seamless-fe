@@ -21,6 +21,7 @@ import { AlertComponent } from './common/alert/alert.component';
     FormsModule,
     AngularIbanModule,
     NgxMaskModule.forRoot(),
+    
   ]
 })
 export class PagesModule { }

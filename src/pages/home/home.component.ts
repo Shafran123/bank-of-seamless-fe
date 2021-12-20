@@ -3,6 +3,7 @@ import { UserService } from 'src/services/user/user.service';
 import { countryIbanLookup } from '../../models/IBAN_Specifications';
 import flagList from '../../models/country.json';
 import { inputMaskTemplate } from '../../models/inputMaskTemplate';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -12,9 +13,9 @@ import { inputMaskTemplate } from '../../models/inputMaskTemplate';
 export class HomeComponent implements OnInit {
 
   public IBAN = ''
-  public transferAmount = null
+  public transferAmount = 0
   public countryCode = ''
-  public countryFlag:any = ''
+  public countryFlag: any = ''
   public balance = 0
   public length = 0
   public inputMask: any = 'AA00 0000 0000 000'
@@ -25,9 +26,11 @@ export class HomeComponent implements OnInit {
   public transactionError = false
   public errorMeasage = ''
   public loading = false;
+  public percentage:any = 0
 
   constructor(
     private userService: UserService,
+    private cdRef:ChangeDetectorRef
   ) {
   }
 
@@ -36,6 +39,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     console.log(countryIbanLookup);
     this.getInitialBalance()
+  }
+
+  ngAfterViewInit() {
+
   }
 
   getInitialBalance() {
@@ -55,20 +62,21 @@ export class HomeComponent implements OnInit {
   }
 
   onChangeIBAN(e: any, ibanStatus: any) {
-    if(e){
-      this.isAmountBlockVisible = false
-      this.IBAN = e
-      console.log(e);
-      if (e.length == 2) {
-        this.getCountrySpecsIBAN(e)
-      } else if (e.length == this.length) {
-        console.log(ibanStatus);
-        if (ibanStatus) {
-          this.getIbanBankDetails()
-        }
-  
+    console.log(ibanStatus);
+
+    this.isAmountBlockVisible = false
+    this.IBAN = e
+    console.log(e);
+    if (e.length == 2) {
+      this.getCountrySpecsIBAN(e)
+    } else if (e.length == this.length) {
+      console.log(ibanStatus);
+      if (ibanStatus) {
+        this.getIbanBankDetails()
       }
+
     }
+
 
 
   }
@@ -77,7 +85,7 @@ export class HomeComponent implements OnInit {
   getCountrySpecsIBAN(iban: any) {
 
     let countryCode = iban.toUpperCase()
-    this.countryFlag = flagList.find(flag =>  flag.code == countryCode)?.flag;
+    this.countryFlag = flagList.find(flag => flag.code == countryCode)?.flag;
     this.countryCode = countryIbanLookup[countryCode][0]
     this.length = countryIbanLookup[countryCode][1]
     this.inputMask = inputMaskTemplate.find(ele => ele.length == this.length)?.mask
@@ -113,7 +121,7 @@ export class HomeComponent implements OnInit {
       this.balance = res.data.aval_balance
       this.transactionScuess = true
       this.isAmountBlockVisible = false
-     
+        
     }).catch(err => {
       console.log(err);
       this.transactionError = true
@@ -122,5 +130,36 @@ export class HomeComponent implements OnInit {
 
 
 
+  }
+
+
+  getPercentage(){
+   this.percentage = ((100 *  this.transferAmount ) / this.balance).toFixed(2);
+  }
+
+
+  getPercentageStyles(){
+    console.log(this.percentage );
+    
+    if(this.percentage < 35){
+      return 'percentageGreen'
+    }else if(this.percentage < 70){
+      return 'percentageOrange'
+    }else if(this.percentage < 100 || this.percentage > 100 ){
+      return 'percentageRed'
+    }
+    else{
+      return 'percentage'
+    }
+  }
+
+  validateTranferBtn(){
+    if(this.transferAmount == 0){
+      return true
+    }else if(this.transferAmount > this.balance ){
+      return true
+    }else{
+      return false
+    }
   }
 }
