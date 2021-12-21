@@ -5,9 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
 import { HttpClientModule } from '@angular/common/http';
-import { ApiService } from 'src/services/shared/api.service';
-import { UserService } from 'src/services/user/user.service';
-import { ErrorMessageHandler } from 'src/helpers/error-handler';
+import { ApiService } from 'src/app/services/shared/api.service';
+import { UserService } from 'src/app/services/user/user.service';
+import { ErrorMessageHandler } from 'src/app/helpers/error-handler';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 
 const maskConfig: Partial<IConfig> = {

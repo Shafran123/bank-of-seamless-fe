@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api_base_url: 'http://localhost:2400',
+  api_base_url: 'https://bank-of-seamless.herokuapp.com',
 };
