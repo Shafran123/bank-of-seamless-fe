@@ -4,6 +4,7 @@ import { countryIbanLookup } from '../../models/IBAN_Specifications';
 import flagList from '../../models/country.json';
 import { inputMaskTemplate } from '../../models/inputMaskTemplate';
 import { ChangeDetectorRef } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-home',
@@ -30,7 +31,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private cdRef:ChangeDetectorRef
+    private cdRef:ChangeDetectorRef,
+    private firestore: AngularFirestore
   ) {
   }
 
@@ -38,14 +40,20 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(countryIbanLookup);
-    this.getInitialBalance()
+
+
+    this.firestore.collection('bank').doc('balance').snapshotChanges().subscribe(res => {
+      console.log('change balance');
+      this.getlBalance()
+      
+    })
   }
 
   ngAfterViewInit() {
 
   }
 
-  getInitialBalance() {
+  getlBalance() {
     this.userService.getInitialBalance().then(res => {
       console.log(res);
       this.balance = res.data?.balance
@@ -117,7 +125,7 @@ export class HomeComponent implements OnInit {
 
     this.userService.transferMoney(this.IBAN, data).then(res => {
       console.log(res);
-      this.balance = res.data.aval_balance
+      //this.balance = res.data.aval_balance
       this.transactionScuess = true
       this.isAmountBlockVisible = false
         

@@ -10,6 +10,13 @@ import { UserService } from 'src/app/services/user/user.service';
 import { ErrorMessageHandler } from 'src/app/helpers/error-handler';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 
+//Firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+
+
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
@@ -24,6 +31,9 @@ const maskConfig: Partial<IConfig> = {
     HttpClientModule,
     AppRoutingModule,
     NgxMaskModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule,
 
   ],
   providers: [ApiService , UserService , ErrorMessageHandler],
