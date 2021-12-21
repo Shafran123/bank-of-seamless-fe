@@ -41,7 +41,7 @@
             <alert [sucess]=true primaryText="Congrats!" secondaryText="Your Transaction Has been Completed!"></alert>
         </div>
 
-        <form name="ibanForm" novalidate>
+        <form  name="ibanForm" novalidate>
             <label for="iban">IBAN:</label>
             <div class="ibanInputContainer">
                 <input class="inputIban" type="text" #iban="ngModel" ibanValidator [ngModel]="IBAN | ibanFormatter"

@@ -1,74 +1,74 @@
 export const inputMaskTemplate= [
     {
         length: 15,
-        mask : 'AA00 0000 0000 000'
+        mask : 'AAAA AAAA AAAA AAA'
     },
     {
         length: 16,
-        mask : 'AA00 0000 0000 0000'
+        mask : 'AAAA AAAA AAAA AAAA'
     },
     {
         length: 17,
-        mask : 'AA00 0000 0000 0000 0'
+        mask : 'AAAA AAAA AAAA AAAA A'
     },
     {
         length: 18,
-        mask : 'AA00 0000 0000 0000 00'
+        mask : 'AAAA AAAA AAAA AAAA AA'
     },
     {
         length: 19,
-        mask : 'AA00 0000 0000 0000 000'
+        mask : 'AAAA AAAA AAAA AAAA AAA'
     },
     {
         length: 20,
-        mask : 'AA00 0000 0000 0000 0000'
+        mask : 'AAAA AAAA AAAA AAAA AAAA'
     },
     {
         length: 21,
-        mask : 'AA00 0000 0000 0000 0000 0'
+        mask : 'AAAA AAAA AAAA AAAA AAAA A'
     },
     {
         length: 22,
-        mask : 'AA00 0000 0000 0000 0000 00'
+        mask : 'AAAA AAAA AAAA AAAA AAAA AA'
     },
     {
         length: 23,
-        mask : 'AA00 0000 0000 0000 0000 000'
+        mask : 'AAAA AAAA AAAA AAAA AAAA AAA'
     },
     {
         length: 24,
-        mask : 'AA00 0000 0000 0000 0000 0000'
+        mask : 'AAAA AAAA AAAA AAAA AAAA AAAA'
     },
     {
         length: 25,
-        mask : 'AA00 0000 0000 0000 0000 0000 0'
+        mask : 'AAAA AAAA AAAA AAAA AAAA AAAA A'
     },
     {
         length: 26,
-        mask : 'AA00 0000 0000 0000 0000 0000 00'
+        mask : 'AAAA AAAA AAAA AAAA AAAA AAAA AA'
     },
     {
         length: 27,
-        mask : 'AA00 0000 0000 0000 0000 0000 000'
+        mask : 'AAAA AAAA AAAA AAAA AAAA AAAA AAA'
     },
     {
         length: 28,
-        mask : 'AA00 0000 0000 0000 0000 0000 0000'
+        mask : 'AAAA AAAA AAAA AAAA AAAA AAAA AAAA'
     },
     {
         length: 29,
-        mask : 'AA00 0000 0000 0000 0000 0000 0000 0'
+        mask : 'AAAA AAAA AAAA AAAA AAAA AAAA AAAA A'
     },
     {
         length: 30,
-        mask : 'AA00 0000 0000 0000 0000 0000 0000 00'
+        mask : 'AAAA AAAA AAAA AAAA AAAA AAAA AAAA AA'
     },
     {
         length: 31,
-        mask : 'AA00 0000 0000 0000 0000 0000 0000 000'
+        mask : 'AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAA'
     },
     {
         length: 32,
-        mask : 'AA00 0000 0000 0000 0000 0000 0000 0000'
+        mask : 'AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA'
     },
 ];
