@@ -80,7 +80,7 @@
         <div *ngIf="isAmountBlockVisible">
 
             <div class="bankLogoContainer">
-                <img src="https://dq8dwmysp7hk1.cloudfront.net/logos/emiratesnbd.svg" alt="bank_logo" loading="lazy">
+                <img [src]="ibanBankLogo" onError="this.src='https://wise.com/iban-resources/img/default.svg'" alt="bank_logo" loading="lazy">
             </div>
             <div class="txtBankName">
                 {{ibanBankName}}
@@ -89,7 +89,7 @@
             <div class="amountInputContainer">
 
                 <input class="inputAmount" type='text' mask="separator" thousandSeparator=","
-                    placeholder="Enter Amount to Transfer" [(ngModel)]="transferAmount"  (ngModelChange)="getPercentage()" />
+                    placeholder="Enter Amount to Transfer" [(ngModel)]="transferAmount"   (ngModelChange)="getPercentage()" />
 
                 <div class="currencyContainer">
 

@@ -62,8 +62,8 @@ export class HomeComponent implements OnInit {
   }
 
   onChangeIBAN(e: any, ibanStatus: any) {
-    console.log(ibanStatus);
-
+    this.transactionScuess = false
+    this.transactionError = false
     this.isAmountBlockVisible = false
     this.IBAN = e
     console.log(e);
@@ -74,7 +74,6 @@ export class HomeComponent implements OnInit {
       if (ibanStatus) {
         this.getIbanBankDetails()
       }
-
     }
 
 
